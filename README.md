@@ -16,3 +16,7 @@ The app uses these technologies:
 
 This app follows [John Papa's AngularJS style guide](https://github.com/johnpapa/angular-styleguide),
 which is the style guide recommended by the AngularJS core team.
+
+## Contributors  
+
+**@author:** 'Caique Caleiro *< [caiquecaleiro@gmail.com](mailto:caiquecaleiro@gmail.com) >*'   
