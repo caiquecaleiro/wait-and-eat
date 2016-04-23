@@ -2,5 +2,5 @@
     'use strict';
 
     angular
-        .module('landing', []);
+        .module('app.landing', []);
 })();

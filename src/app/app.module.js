@@ -6,7 +6,9 @@
         .module('app', [
             // Angular modules
             'ngRoute',
-            // third-party modules
-            'firebase'
+            // Third-party modules
+            'firebase',
+            // Custom modules
+            'app.landing'
         ]);
 })();
