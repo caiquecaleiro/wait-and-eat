@@ -7,7 +7,7 @@
 
     configFunction.$inject = ['$routeProvider'];
 
-    function configFunction() {
+    function configFunction($routeProvider) {
         $routeProvider
             .when('/waitlist', {
                 templateUrl: 'app/waitList/waitList.html'
