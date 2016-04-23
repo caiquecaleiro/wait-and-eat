@@ -11,3 +11,8 @@ The app uses these technologies:
 * Firebase 2.2.x
 * AngularFire 1.2.x
 * Bootstrap 3.3.x
+
+## Style and structure
+
+This app follows [John Papa's AngularJS style guide](https://github.com/johnpapa/angular-styleguide),
+which is the style guide recommended by the AngularJS core team.
