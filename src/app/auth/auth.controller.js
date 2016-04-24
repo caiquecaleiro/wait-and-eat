@@ -19,8 +19,18 @@
 
         vm.register = register;
 
+        /**
+         * Creates a new user to access the website. The new user is saved to
+         * Firebase.
+         */
         function register(user) {
-            return firebaseAuthObject.$createUser(user);
+            return firebaseAuthObject.$createUser(user)
+                .then(function() {
+                    console.log(user);
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
         }
     }
 })();
