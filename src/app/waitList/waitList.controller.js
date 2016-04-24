@@ -18,6 +18,7 @@
         vm.addParty = addParty;
         vm.removeParty = removeParty;
         vm.sendTextMessage = sendTextMessage;
+        vm.toggleDone = toggleDone;
 
         /**
          * The party is a group of people or just one person as well.
@@ -62,6 +63,15 @@
             };
             fireTextMessages.push(newTextMessage);
             party.notified = true;
+            vm.parties.$save(party);
+        }
+
+        /**
+         * Saves the party to the Firabase whenever the user toggles the Done
+         * checkbox.
+         * @param {object} party - The party object
+         */
+        function toggleDone(party) {
             vm.parties.$save(party);
         }
     }
