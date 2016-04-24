@@ -3,7 +3,7 @@
 
     angular
         .module('app.landing')
-        .config(configFunction) // Going to execute the config on the module app.landing
+        .config(configFunction); // Going to execute the config on the module app.landing
 
     configFunction.$inject = ['$routeProvider'];
 
