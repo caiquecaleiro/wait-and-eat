@@ -19,6 +19,10 @@
         vm.removeParty = removeParty;
         vm.sendTextMessage = sendTextMessage;
 
+        /**
+         * The party is a group of people or just one person as well.
+         * @constructor
+         */
         function Party() {
             this.name = '';
             this.phone = '';
@@ -27,11 +31,19 @@
             this.notified = false;
         }
 
+        /**
+         * Adds the party to the Firabase.
+         * @param {object} party - The new party object.
+         */
         function addParty() {
             vm.parties.$add(vm.newParty);
             vm.newParty = new Party();
         }
 
+        /**
+         * Removes the party from the Firabase.
+         * @param {object} party - The party object.
+         */
         function removeParty(party) {
             vm.parties.$remove(party);
         }
@@ -40,7 +52,6 @@
          * This method will create a new text message and save it on Firebase.
          * After saving it, the node.js server will listen and send a message
          * for the saved phone number (using the Twilio SMS).
-         *
          * @param {object} party - The party object.
          */
         function sendTextMessage(party) {
