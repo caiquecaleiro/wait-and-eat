@@ -38,6 +38,7 @@
 
         /**
          * Performs the login in action to access the website.
+         * The successful action of login redirects the user to the Wait List page.
          * @param {object} user - The user to perform the login.
          */
         function login(user) {
@@ -51,7 +52,7 @@
         }
 
         /**
-         * Performs the logout action.
+         * Performs the logout action and redirects the user to the home page.
          */
         function logout() {
             firebaseAuthObject.$unauth();
