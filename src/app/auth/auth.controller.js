@@ -23,11 +23,12 @@
         /**
          * Creates a new user to access the website. The new user is saved to
          * Firebase.
+         * @param {object} user - The user to perform the sign in.
          */
         function register(user) {
             return firebaseAuthObject.$createUser(user)
-                .then(function(user) {
-                    console.log(user);
+                .then(function() {
+                    vm.login(user);
                 })
                 .catch(function(error) {
                     console.log(error);
@@ -36,6 +37,7 @@
 
         /**
          * Performs the login in action to access the website.
+         * @param {object} user - The user to perform the login.
          */
         function login(user) {
             return firebaseAuthObject.$authWithPassword(user)
