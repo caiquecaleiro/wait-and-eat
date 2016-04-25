@@ -5,15 +5,15 @@
         .module('app.waitList')
         .controller('WaitListController', WaitListController);
 
-    WaitListController.$inject = ['$firebaseArray', 'FIREBASE_URL'];
+    WaitListController.$inject = ['$firebaseArray', 'FIREBASE_URL', 'partyService'];
 
-    function WaitListController($firebaseArray, FIREBASE_URL) {
+    function WaitListController($firebaseArray, FIREBASE_URL, partyService) {
         // ViewModel
         var vm = this;
         var fireParties = new Firebase(FIREBASE_URL + 'parties');
         var fireTextMessages = new Firebase(FIREBASE_URL + 'textMessages');
 
-        vm.newParty = new Party();
+        vm.newParty = new partyService.Party();
         vm.parties = $firebaseArray(fireParties);
         vm.addParty = addParty;
         vm.removeParty = removeParty;
@@ -21,23 +21,11 @@
         vm.toggleDone = toggleDone;
 
         /**
-         * The party is a group of people or just one person as well.
-         * @constructor
-         */
-        function Party() {
-            this.name = '';
-            this.phone = '';
-            this.size = '';
-            this.done = false;
-            this.notified = false;
-        }
-
-        /**
          * Adds the party to the Firebase.
          */
         function addParty() {
             vm.parties.$add(vm.newParty);
-            vm.newParty = new Party();
+            vm.newParty = new partyService.Party();
         }
 
         /**
