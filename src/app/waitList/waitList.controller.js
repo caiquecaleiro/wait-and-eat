@@ -33,8 +33,7 @@
         }
 
         /**
-         * Adds the party to the Firabase.
-         * @param {object} party - The new party object.
+         * Adds the party to the Firebase.
          */
         function addParty() {
             vm.parties.$add(vm.newParty);
@@ -42,7 +41,7 @@
         }
 
         /**
-         * Removes the party from the Firabase.
+         * Removes the party from the Firebase.
          * @param {object} party - The party object.
          */
         function removeParty(party) {
@@ -67,7 +66,7 @@
         }
 
         /**
-         * Saves the party to the Firabase whenever the user toggles the Done
+         * Saves the party to the Firebase whenever the user toggles the Done
          * checkbox.
          * @param {object} party - The party object
          */
