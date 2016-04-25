@@ -18,6 +18,7 @@
         };
 
         vm.register = register;
+        vm.login = login;
 
         /**
          * Creates a new user to access the website. The new user is saved to
@@ -25,8 +26,21 @@
          */
         function register(user) {
             return firebaseAuthObject.$createUser(user)
-                .then(function() {
+                .then(function(user) {
                     console.log(user);
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
+        }
+
+        /**
+         * Performs the login in action to access the website.
+         */
+        function login(user) {
+            return firebaseAuthObject.$authWithPassword(user)
+                .then(function(loggedInUser) {
+                    console.log(loggedInUser);
                 })
                 .catch(function(error) {
                     console.log(error);
