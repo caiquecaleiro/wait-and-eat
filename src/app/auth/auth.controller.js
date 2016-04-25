@@ -5,9 +5,9 @@
         .module('app.auth')
         .controller('AuthController', AuthController);
 
-    AuthController.$inject = ['$firebaseAuth'];
+    AuthController.$inject = ['$location', '$firebaseAuth'];
 
-    function AuthController($firebaseAuth) {
+    function AuthController($location, $firebaseAuth) {
         var vm = this;
         var firebaseReference = new Firebase('https://blistering-torch-6934.firebaseio.com/parties');
         var firebaseAuthObject = $firebaseAuth(firebaseReference);
@@ -19,6 +19,7 @@
 
         vm.register = register;
         vm.login = login;
+        vm.logout = logout;
 
         /**
          * Creates a new user to access the website. The new user is saved to
@@ -42,11 +43,19 @@
         function login(user) {
             return firebaseAuthObject.$authWithPassword(user)
                 .then(function(loggedInUser) {
-                    console.log(loggedInUser);
+                    $location.path('/waitlist');
                 })
                 .catch(function(error) {
                     console.log(error);
                 });
+        }
+
+        /**
+         * Performs the logout action.
+         */
+        function logout() {
+            firebaseAuthObject.$unauth();
+            $location.path('/');
         }
     }
 })();
