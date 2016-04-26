@@ -5,9 +5,9 @@
         .module('app.waitList')
         .controller('WaitListController', WaitListController);
 
-    WaitListController.$inject = ['partyService', 'firebaseDataService'];
+    WaitListController.$inject = ['textMessageService', 'partyService'];
 
-    function WaitListController(partyService, firebaseDataService) {
+    function WaitListController(textMessageService, partyService) {
         // ViewModel
         var vm = this;
         vm.newParty = new partyService.Party();
@@ -34,20 +34,11 @@
         }
 
         /**
-         * This method will create a new text message and save it on Firebase.
-         * After saving it, the node.js server will listen and send a message
-         * for the saved phone number (using the Twilio SMS).
+         * Sends a text message for the user's cellphone number.
          * @param {object} party - The party object.
          */
         function sendTextMessage(party) {
-            var newTextMessage = {
-                name: party.name,
-                phoneNumber: party.phone,
-                size: party.size
-            };
-            firebaseDataService.textMessages.push(newTextMessage);
-            party.notified = true;
-            vm.parties.$save(party);
+            textMessageService.sendTextMessage(party, vm.parties);
         }
 
         /**
