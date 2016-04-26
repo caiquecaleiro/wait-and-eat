@@ -13,7 +13,8 @@
         var service = {
             register: register,
             login: login,
-            logout: logout
+            logout: logout,
+            isLoggedIn: isLoggedIn
         };
 
         return service;
@@ -40,6 +41,13 @@
          */
         function logout() {
             return firebaseAuthObject.$unauth();
+        }
+
+        /**
+         * Returns whether the user is logged in or not.
+         */
+        function isLoggedIn() {
+            return firebaseAuthObject.$getAuth();
         }
     }
 })();

@@ -18,6 +18,7 @@
         vm.register = register;
         vm.login = login;
         vm.logout = logout;
+        vm.isLoggedIn = authService.isLoggedIn;
 
         /**
          * Creates a new user to access the website.
