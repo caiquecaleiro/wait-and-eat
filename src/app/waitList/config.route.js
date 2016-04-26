@@ -12,7 +12,17 @@
             .when('/waitlist', {
                 templateUrl: 'app/waitList/waitList.html',
                 controller: 'WaitListController',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {user: resolveUser}
             });
+
+        resolveUser.$inject = ['authService'];
+
+        /**
+         * The resolve returns success if the user is logged in.
+         */
+        function resolveUser(authService) {
+            return authService.firebaseAuthObject.$requireAuth();
+        }
     }
 })();
