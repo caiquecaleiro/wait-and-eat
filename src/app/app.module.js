@@ -12,6 +12,7 @@
             'app.landing',
             'app.waitList',
             'app.auth',
-            'app.core'
+            'app.core',
+            'app.layout'
         ]);
 })();
