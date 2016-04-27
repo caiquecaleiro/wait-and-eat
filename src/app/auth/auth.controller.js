@@ -17,8 +17,6 @@
 
         vm.register = register;
         vm.login = login;
-        vm.logout = logout;
-        vm.isLoggedIn = authService.isLoggedIn;
 
         /**
          * Creates a new user to access the website.
@@ -48,14 +46,6 @@
                 .catch(function(error) {
                     console.log(error);
                 });
-        }
-
-        /**
-         * Performs the logout action and redirects the user to the home page.
-         */
-        function logout() {
-            authService.logout();
-            $location.path('/');
         }
     }
 })();
