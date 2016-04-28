@@ -15,7 +15,8 @@
             'app.core',
             'app.layout'
         ])
-        .config(configFunction);
+        .config(configFunction)
+        .run(runFunction);
 
     configFunction.$inject = ['$routeProvider'];
 
@@ -23,6 +24,21 @@
         $routeProvider
             .otherwise({
                 redirectTo: '/'
+            });
+    }
+
+    runFunction.$inject = ['$location', '$rootScope'];
+
+    /**
+     * Listen for routeChangeError and whenever the user is not authenticated,
+     * he/she is redirected to the home page.
+     */
+    function runFunction($location, $rootScope) {
+        $rootScope.$on('$routeChangeError',
+            function(event, next, previous, error) {
+                if (error == 'AUTH_REQUIRED') {
+                  $location.path('/');
+                }
             });
     }
 })();
