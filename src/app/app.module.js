@@ -14,5 +14,15 @@
             'app.auth',
             'app.core',
             'app.layout'
-        ]);
+        ])
+        .config(configFunction);
+
+    configFunction.$inject = ['$routeProvider'];
+
+    function configFunction($routeProvider) {
+        $routeProvider
+            .otherwise({
+                redirectTo: '/'
+            });
+    }
 })();
