@@ -20,13 +20,17 @@
 
         /**
          * Creates a new user to access the website.
-         * With the success return, it will execute the login action as well.
+         * With the success return, it will execute the login action and send a
+         * welcome email for the user.
          * @param {object} user - The user to perform the sign in.
          */
         function register(user) {
             return authService.register(user)
                 .then(function() {
-                    vm.login(user);
+                    return vm.login(user);
+                })
+                .then(function() {
+                    return authService.sendWelcomeEmail(user.email);
                 })
                 .catch(function(error) {
                     console.log(error);
