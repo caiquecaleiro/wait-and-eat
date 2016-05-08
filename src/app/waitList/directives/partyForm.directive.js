@@ -9,15 +9,28 @@
         return {
             templateUrl: 'app/waitList/directives/partyForm.html',
             restrict: 'E',
-            scope: {},
             controller: PartyFormController,
-            controllerAs: 'vm'
+            controllerAs: 'vm',
+            bindToController: true,
+            scope: {
+                parties: '='
+            }
         };
+    }
 
-        PartyFormController.$inject = ['partyService'];
+    PartyFormController.$inject = ['partyService'];
 
-        function PartyFormController(partyService) {
+    function PartyFormController(partyService) {
+        var vm = this;
+        vm.newParty = new partyService.Party();
+        vm.addParty = addParty;
 
+        /**
+         * Adds the party to the Firebase.
+         */
+        function addParty() {
+            vm.parties.$add(vm.newParty);
+            vm.newParty = new partyService.Party();
         }
     }
 })();

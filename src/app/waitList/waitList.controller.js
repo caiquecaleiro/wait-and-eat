@@ -10,20 +10,10 @@
     function WaitListController(textMessageService, partyService, user) {
         // ViewModel
         var vm = this;
-        vm.newParty = new partyService.Party();
         vm.parties = partyService.getPartiesByUser(user.uid);
-        vm.addParty = addParty;
         vm.removeParty = removeParty;
         vm.sendTextMessage = sendTextMessage;
         vm.toggleDone = toggleDone;
-
-        /**
-         * Adds the party to the Firebase.
-         */
-        function addParty() {
-            vm.parties.$add(vm.newParty);
-            vm.newParty = new partyService.Party();
-        }
 
         /**
          * Removes the party from the Firebase.
