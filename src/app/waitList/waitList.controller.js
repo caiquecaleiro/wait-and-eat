@@ -5,9 +5,9 @@
         .module('app.waitList')
         .controller('WaitListController', WaitListController);
 
-    WaitListController.$inject = ['textMessageService', 'partyService', 'user'];
+    WaitListController.$inject = ['partyService', 'user'];
 
-    function WaitListController(textMessageService, partyService, user) {
+    function WaitListController(partyService, user) {
         // ViewModel
         var vm = this;
         vm.parties = partyService.getPartiesByUser(user.uid);
