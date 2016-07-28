@@ -18,6 +18,14 @@
   },
   "homepage": "https://github.com/caiquecaleiro/wait-and-eat#readme",
   "dependencies": {
-    "bower": "^1.7.9"
+    "bower": "^1.7.9",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-connect": "^5.0.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-uglify": "^1.5.4",
+    "jshint": "^2.9.2",
+    "run-sequence": "^1.2.2"
   }
 }
