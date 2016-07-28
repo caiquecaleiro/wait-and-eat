@@ -15,7 +15,7 @@
         };
     }
 
-    NavbarController.$inject = ['$location', 'authService']
+    NavbarController.$inject = ['$location', 'authService'];
 
     function NavbarController($location, authService) {
         var vm = this;
