@@ -1,0 +1,24 @@
+{
+  "name": "wait-and-eat",
+  "description": "Wait and Eat replaces paper waiting lists at restaurants.",
+  "main": "app.module.js",
+  "authors": [
+    "Caique Caleiro <caiquecaleiro@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/caiquecaleiro/wait-and-eat",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "firebase": "^3.2.1",
+    "angularfire": "^2.0.1"
+  }
+}
