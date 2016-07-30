@@ -8,7 +8,7 @@
     authService.$inject = ['$firebaseAuth', 'firebaseDataService', 'partyService'];
 
     function authService($firebaseAuth, firebaseDataService, partyService) {
-        var firebaseAuthObject = $firebaseAuth(firebaseDataService.root);
+        var firebaseAuthObject = $firebaseAuth();
 
         var service = {
             firebaseAuthObject: firebaseAuthObject,
@@ -27,7 +27,7 @@
          * @param {object} user - The user to perform the sign in.
          */
         function register(user) {
-            return firebaseAuthObject.$createUser(user);
+            return firebaseAuthObject.$createUserWithEmailAndPassword(user.email, user.password);
         }
 
         /**
@@ -35,7 +35,7 @@
          * @param {object} user - The user to perform the login.
          */
         function login(user) {
-            return firebaseAuthObject.$authWithPassword(user);
+            return firebaseAuthObject.$signInWithEmailAndPassword(user.email, user.password);
         }
 
         /**
@@ -43,7 +43,7 @@
          */
         function logout() {
             partyService.reset();
-            return firebaseAuthObject.$unauth();
+            return firebaseAuthObject.$signOut();
         }
 
         /**

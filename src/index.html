@@ -24,9 +24,19 @@
     <!-- Angular-Route -->
     <script src="../bower_components/angular-route/angular-route.min.js"></script>
     <!-- Firebase -->
-    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <script src="../bower_components/firebase/firebase.js"></script>
     <!-- AngularFire -->
-    <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+    <script src="../bower_components/angularfire/dist/angularfire.min.js"></script>
+    <!-- Initialize Firebase -->
+    <script>
+      var config = {
+        apiKey: "AIzaSyCEiJzWGEXnxmkeEH2rLgi8Zgrcc9WSNqA",
+        authDomain: "blistering-torch-6934.firebaseapp.com",
+        databaseURL: "https://blistering-torch-6934.firebaseio.com",
+        storageBucket: "blistering-torch-6934.appspot.com",
+      };
+      firebase.initializeApp(config);
+    </script>
 
     <!-- Main app module -->
     <script src="app/app.module.js"></script>

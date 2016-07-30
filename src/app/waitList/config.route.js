@@ -22,7 +22,7 @@
          * The resolve returns success if the user is logged in.
          */
         function resolveUser(authService) {
-            return authService.firebaseAuthObject.$requireAuth();
+            return authService.firebaseAuthObject.$requireSignIn();
         }
     }
 })();
